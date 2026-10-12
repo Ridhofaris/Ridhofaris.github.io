@@ -1,0 +1,586 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="description" content="Portofolio Muhammad Ridho Alfaris, mahasiswa Sistem Informasi dengan minat pada teknologi, pengolahan data, pemrograman, dan perangkat keras." />
+  <link rel="icon" href="data:," />
+  <title>Portofolio Publik Muhammad Ridho Alfaris</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Libre+Franklin:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #f4f7f6;
+      --surface: #ffffff;
+      --surface-2: #e8eeec;
+      --ink: #11221f;
+      --muted: #4b5f5a;
+      --line: #c7d2ce;
+      --accent: #007b67;
+      --accent-ink: #ffffff;
+      --signal: #ef603b;
+      --soft-accent: #d9f1e9;
+      --nav-bg: rgba(244, 247, 246, .9);
+      --shadow: 0 18px 50px rgba(20, 55, 48, .09);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0d1614;
+        --surface: #14211e;
+        --surface-2: #1b2c28;
+        --ink: #eef7f4;
+        --muted: #b4c5c0;
+        --line: #31443f;
+        --accent: #5bd1b6;
+        --accent-ink: #071411;
+        --signal: #ff8261;
+        --soft-accent: #183b33;
+        --nav-bg: rgba(13, 22, 20, .9);
+        --shadow: 0 18px 50px rgba(0, 0, 0, .28);
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 86px; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Libre Franklin", sans-serif;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    a { color: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    ::selection { background: var(--accent); color: var(--accent-ink); }
+
+    .skip-link {
+      position: fixed;
+      left: 1rem;
+      top: -4rem;
+      z-index: 999;
+      background: var(--ink);
+      color: var(--bg);
+      padding: .7rem 1rem;
+      border-radius: 4px;
+    }
+    .skip-link:focus { top: 1rem; }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      border-bottom: 1px solid var(--line);
+      background: var(--nav-bg);
+      backdrop-filter: blur(14px);
+    }
+    .nav-wrap {
+      width: min(1160px, calc(100% - 40px));
+      min-height: 66px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .availability {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      color: var(--muted);
+      font-size: .84rem;
+      font-weight: 600;
+    }
+    .availability::before {
+      content: "";
+      width: 9px;
+      height: 9px;
+      background: var(--accent);
+      border-radius: 50%;
+      box-shadow: 0 0 0 4px var(--soft-accent);
+    }
+    nav { display: flex; align-items: center; gap: 8px; }
+    nav a {
+      text-decoration: none;
+      color: var(--muted);
+      font-size: .88rem;
+      font-weight: 600;
+      padding: .55rem .72rem;
+      border-radius: 5px;
+    }
+    nav a:hover, nav a:focus-visible { background: var(--surface-2); color: var(--ink); outline: none; }
+
+    .wrap { width: min(1160px, calc(100% - 40px)); margin-inline: auto; }
+    .hero {
+      min-height: calc(100vh - 66px);
+      display: grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap: clamp(40px, 7vw, 96px);
+      align-items: center;
+      padding-block: clamp(72px, 10vw, 132px);
+    }
+    .hero-copy { position: relative; }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin: 0 0 20px;
+      font-family: "IBM Plex Mono", monospace;
+      color: var(--accent);
+      font-size: .82rem;
+      font-weight: 600;
+    }
+    .eyebrow::before { content: ""; width: 32px; height: 2px; background: currentColor; }
+    h1 {
+      max-width: 820px;
+      margin: 0;
+      font-size: clamp(3rem, 8vw, 6.8rem);
+      line-height: .95;
+      letter-spacing: -.065em;
+      font-weight: 800;
+    }
+    .hero h1 span { color: var(--accent); }
+    .intro {
+      max-width: 690px;
+      margin: 32px 0 0;
+      color: var(--muted);
+      font-size: clamp(1.05rem, 1.7vw, 1.28rem);
+      line-height: 1.7;
+    }
+    .intro strong { color: var(--ink); font-weight: 700; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
+    .button {
+      min-height: 48px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: .78rem 1.05rem;
+      border: 1px solid var(--ink);
+      background: var(--ink);
+      color: var(--bg);
+      text-decoration: none;
+      font-size: .9rem;
+      font-weight: 700;
+      border-radius: 6px;
+      transition: background .2s, color .2s, border-color .2s;
+    }
+    .button:hover, .button:focus-visible { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); outline: none; }
+    .button.secondary { background: transparent; color: var(--ink); border-color: var(--line); }
+    .button.secondary:hover, .button.secondary:focus-visible { border-color: var(--ink); background: var(--surface); }
+    .button svg { width: 17px; height: 17px; flex: none; }
+
+    .tech-map {
+      position: relative;
+      padding: 26px;
+      border: 1px solid var(--line);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+    .tech-map::before {
+      content: "";
+      position: absolute;
+      inset: 12px;
+      pointer-events: none;
+      border: 1px dashed var(--line);
+    }
+    .map-heading {
+      position: relative;
+      margin: 0 0 26px;
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: .75rem;
+      color: var(--muted);
+    }
+    .map-stack { position: relative; display: grid; gap: 18px; }
+    .map-item {
+      display: grid;
+      grid-template-columns: 38px 1fr;
+      gap: 14px;
+      align-items: center;
+      padding: 14px;
+      background: var(--surface-2);
+      border-radius: 4px;
+    }
+    .map-index {
+      display: grid;
+      place-items: center;
+      width: 38px;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: var(--accent);
+      color: var(--accent-ink);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: .76rem;
+      font-weight: 600;
+    }
+    .map-item:nth-child(2) .map-index { background: var(--signal); color: #fff; }
+    .map-label { margin: 0; font-weight: 700; font-size: .96rem; }
+    .map-note { margin: 1px 0 0; color: var(--muted); font-size: .78rem; }
+    .map-footer {
+      position: relative;
+      margin-top: 24px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: .74rem;
+      color: var(--muted);
+    }
+
+    section { padding-block: clamp(72px, 9vw, 118px); border-top: 1px solid var(--line); }
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(220px, .75fr) 1.25fr;
+      gap: 40px;
+      align-items: end;
+      margin-bottom: 48px;
+    }
+    .section-head h2 {
+      margin: 0;
+      font-size: clamp(2rem, 4.5vw, 4rem);
+      line-height: 1;
+      letter-spacing: -.045em;
+    }
+    .section-head p { margin: 0; color: var(--muted); max-width: 620px; }
+    .section-number { display: block; margin-bottom: 16px; color: var(--signal); font-family: "IBM Plex Mono", monospace; font-size: .8rem; }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border: 1px solid var(--line);
+      background: var(--surface);
+      margin-bottom: 34px;
+    }
+    .metric { padding: 28px; min-height: 160px; }
+    .metric + .metric { border-left: 1px solid var(--line); }
+    .metric-value {
+      display: block;
+      font-size: clamp(2.5rem, 5vw, 4.4rem);
+      line-height: 1;
+      color: var(--accent);
+      font-weight: 800;
+      letter-spacing: -.06em;
+    }
+    .metric p { margin: 14px 0 0; color: var(--muted); font-size: .9rem; }
+
+    .project-list { display: grid; gap: 18px; }
+    .project {
+      display: grid;
+      grid-template-columns: 110px minmax(0, 1.4fr) minmax(230px, .6fr);
+      gap: 30px;
+      padding: clamp(24px, 4vw, 42px);
+      background: var(--surface);
+      border: 1px solid var(--line);
+      align-items: start;
+    }
+    .project-id {
+      font-family: "IBM Plex Mono", monospace;
+      font-weight: 600;
+      color: var(--signal);
+      font-size: .8rem;
+    }
+    .project h3 { margin: 0; font-size: clamp(1.35rem, 2.5vw, 2rem); line-height: 1.2; letter-spacing: -.025em; }
+    .project-summary { margin: 13px 0 0; color: var(--muted); }
+    .project-side { border-left: 1px solid var(--line); padding-left: 26px; }
+    .project-side strong { display: block; font-size: .78rem; font-family: "IBM Plex Mono", monospace; color: var(--muted); margin-bottom: 9px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag { padding: .34rem .55rem; background: var(--surface-2); border-radius: 3px; font-size: .74rem; font-weight: 600; }
+    .project-points { grid-column: 2 / -1; margin: -2px 0 0; padding: 22px 0 0; border-top: 1px solid var(--line); display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 28px; list-style: none; }
+    .project-points li { position: relative; padding-left: 18px; color: var(--muted); font-size: .91rem; }
+    .project-points li::before { content: "+"; position: absolute; left: 0; color: var(--accent); font-family: "IBM Plex Mono", monospace; font-weight: 600; }
+
+    .skills-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 18px; }
+    .skill-panel { background: var(--surface); border: 1px solid var(--line); padding: clamp(26px, 4vw, 42px); }
+    .skill-panel h3 { margin: 0 0 26px; font-size: 1.12rem; }
+    .skill-groups { display: grid; gap: 26px; }
+    .skill-group { display: grid; grid-template-columns: 150px 1fr; gap: 16px; padding-top: 22px; border-top: 1px solid var(--line); }
+    .skill-group:first-child { padding-top: 0; border-top: 0; }
+    .skill-group h4 { margin: 0; color: var(--muted); font-size: .78rem; font-family: "IBM Plex Mono", monospace; font-weight: 500; }
+    .skill-group p { margin: 0; font-weight: 600; }
+    .cert-list { list-style: none; padding: 0; margin: 0; display: grid; }
+    .cert-list li { display: grid; grid-template-columns: 74px 1fr; gap: 16px; padding: 14px 0; border-top: 1px solid var(--line); }
+    .cert-list li:first-child { border-top: 0; padding-top: 0; }
+    .issuer { color: var(--accent); font-family: "IBM Plex Mono", monospace; font-size: .72rem; font-weight: 600; padding-top: 2px; }
+    .cert-name { font-size: .88rem; line-height: 1.45; }
+
+    .path-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .timeline { background: var(--surface); border: 1px solid var(--line); padding: clamp(26px, 4vw, 42px); }
+    .timeline > h3 { margin: 0 0 30px; }
+    .timeline-item { position: relative; padding: 0 0 30px 28px; border-left: 1px solid var(--line); }
+    .timeline-item:last-child { padding-bottom: 0; }
+    .timeline-item::before { content: ""; position: absolute; left: -5px; top: 6px; width: 9px; height: 9px; background: var(--accent); border-radius: 50%; box-shadow: 0 0 0 5px var(--soft-accent); }
+    .timeline-date { font-family: "IBM Plex Mono", monospace; color: var(--signal); font-size: .75rem; font-weight: 600; }
+    .timeline h4 { margin: 7px 0 4px; font-size: 1.05rem; }
+    .timeline p { margin: 0; color: var(--muted); font-size: .9rem; }
+    .org-panel { background: var(--ink); color: var(--bg); padding: clamp(26px, 4vw, 42px); display: flex; flex-direction: column; justify-content: space-between; min-height: 100%; }
+    @media (prefers-color-scheme: dark) { .org-panel { background: #e6f1ee; color: #0f1c19; } }
+    .org-panel .mono { font-family: "IBM Plex Mono", monospace; font-size: .75rem; opacity: .7; }
+    .org-panel h3 { margin: 22px 0 10px; font-size: clamp(1.5rem, 3vw, 2.4rem); line-height: 1.15; }
+    .org-panel p { margin: 0; opacity: .76; }
+    .org-skills { margin-top: 40px; display: flex; flex-wrap: wrap; gap: 8px; }
+    .org-skills span { padding: .4rem .6rem; border: 1px solid currentColor; border-radius: 3px; font-size: .75rem; }
+
+    .contact {
+      padding-block: clamp(84px, 12vw, 150px);
+      border-top: 1px solid var(--line);
+      text-align: center;
+    }
+    .contact h2 { margin: 0 auto; max-width: 840px; font-size: clamp(2.4rem, 7vw, 6rem); line-height: 1; letter-spacing: -.06em; }
+    .contact p { max-width: 620px; margin: 26px auto 34px; color: var(--muted); }
+    .contact-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+    .contact-meta { margin-top: 42px; display: flex; flex-wrap: wrap; justify-content: center; gap: 12px 28px; color: var(--muted); font-family: "IBM Plex Mono", monospace; font-size: .76rem; }
+
+    footer { border-top: 1px solid var(--line); padding-block: 24px; color: var(--muted); font-size: .8rem; }
+    .footer-row { display: flex; justify-content: space-between; gap: 20px; }
+    .footer-row a { text-decoration: none; color: var(--ink); font-weight: 600; }
+
+    @media (max-width: 900px) {
+      .hero { min-height: auto; grid-template-columns: 1fr; }
+      .tech-map { max-width: 640px; }
+      .section-head { grid-template-columns: 1fr; gap: 16px; }
+      .project { grid-template-columns: 76px 1fr; }
+      .project-side { grid-column: 2; border-left: 0; padding-left: 0; }
+      .project-points { grid-column: 2; }
+      .skills-grid, .path-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 680px) {
+      .nav-wrap, .wrap { width: min(100% - 28px, 1160px); }
+      .topbar nav a:not(:last-child) { display: none; }
+      .topbar nav a:last-child { background: var(--ink); color: var(--bg); }
+      .hero { padding-block: 66px 76px; }
+      h1 { font-size: clamp(3.25rem, 18vw, 5rem); }
+      .intro { margin-top: 26px; }
+      .hero-actions .button { flex: 1 1 100%; }
+      .metrics { grid-template-columns: 1fr; }
+      .metric { min-height: 0; }
+      .metric + .metric { border-left: 0; border-top: 1px solid var(--line); }
+      .project { grid-template-columns: 1fr; gap: 16px; }
+      .project-side, .project-points { grid-column: 1; }
+      .project-side { border-top: 1px solid var(--line); padding-top: 18px; }
+      .project-points { grid-template-columns: 1fr; padding-top: 18px; }
+      .skill-group { grid-template-columns: 1fr; gap: 6px; }
+      .cert-list li { grid-template-columns: 1fr; gap: 4px; }
+      .contact-links .button { width: 100%; }
+      .footer-row { flex-direction: column; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Lewati ke konten utama</a>
+
+  <header class="topbar">
+    <div class="nav-wrap">
+      <div class="availability">Terbuka untuk peluang</div>
+      <nav aria-label="Navigasi utama">
+        <a href="#proyek">Proyek</a>
+        <a href="#keahlian">Keahlian</a>
+        <a href="#perjalanan">Perjalanan</a>
+        <a href="#jejaring">Jejaring</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero wrap" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow">Mahasiswa Sistem Informasi · Jakarta</p>
+        <h1 id="hero-title">Muhammad Ridho <span>Alfaris.</span></h1>
+        <p class="intro">Saya membangun fondasi di persimpangan <strong>data, pemrograman, dan perangkat keras</strong>—mulai dari pengolahan data yang rapi, aplikasi konsol C++, hingga prototipe Arduino.</p>
+        <div class="hero-actions">
+          <a class="button" href="#proyek">
+            Lihat karya
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <aside class="tech-map" aria-label="Peta fokus pengembangan">
+        <div class="map-heading"><span>FOKUS_2026</span><span>SI / 01</span></div>
+        <div class="map-stack">
+          <div class="map-item">
+            <span class="map-index">01</span>
+            <div><p class="map-label">Data & administrasi</p><p class="map-note">Excel · validasi · laporan</p></div>
+          </div>
+          <div class="map-item">
+            <span class="map-index">02</span>
+            <div><p class="map-label">Pemrograman</p><p class="map-note">C++ · Python dasar · debugging</p></div>
+          </div>
+          <div class="map-item">
+            <span class="map-index">03</span>
+            <div><p class="map-label">Hardware</p><p class="map-note">Arduino · PC · jaringan dasar</p></div>
+          </div>
+        </div>
+        <div class="map-footer">Tujuan: tumbuh melalui proyek nyata dan pengalaman kerja awal di bidang teknologi.</div>
+      </aside>
+    </section>
+
+    <section id="proyek">
+      <div class="wrap">
+        <div class="section-head">
+          <div><span class="section-number">01 / PROYEK</span><h2>Belajar dengan membuat.</h2></div>
+          <p>Tiga proyek yang menunjukkan cara saya mengolah informasi, memecahkan masalah, dan menghubungkan ide dengan implementasi.</p>
+        </div>
+
+        <div class="metrics" aria-label="Pencapaian proyek entri data">
+          <div class="metric"><span class="metric-value">98%</span><p>Akurasi pengelolaan basis data menggunakan Microsoft Excel.</p></div>
+          <div class="metric"><span class="metric-value">+20%</span><p>Peningkatan efisiensi pemrosesan melalui optimalisasi lembar kerja.</p></div>
+          <div class="metric"><span class="metric-value">−30%</span><p>Pengurangan kesalahan berulang dengan validasi data terstruktur.</p></div>
+        </div>
+
+        <div class="project-list">
+          <article class="project">
+            <div class="project-id">PROYEK_01<br>2023–2024</div>
+            <div>
+              <h3>Entri Data & Administrasi</h3>
+              <p class="project-summary">Mengelola basis data dan menyusun laporan administratif dengan alur kerja yang lebih akurat dan efisien.</p>
+            </div>
+            <div class="project-side">
+              <strong>TEKNOLOGI</strong>
+              <div class="tags"><span class="tag">Microsoft Excel</span><span class="tag">Microsoft Word</span></div>
+            </div>
+            <ul class="project-points">
+              <li>Menerapkan validasi terstruktur untuk menekan kesalahan entri.</li>
+              <li>Mengoptimalkan lembar kerja agar pemrosesan data lebih efisien.</li>
+            </ul>
+          </article>
+
+          <article class="project">
+            <div class="project-id">PROYEK_02<br>2024–2025</div>
+            <div>
+              <h3>Tali Jemuran Cerdas</h3>
+              <p class="project-summary">Prototipe sistem tertanam yang merespons hujan secara otomatis menggunakan sensor, Arduino Uno, dan motor servo.</p>
+            </div>
+            <div class="project-side">
+              <strong>TEKNOLOGI</strong>
+              <div class="tags"><span class="tag">Arduino Uno</span><span class="tag">Sensor Hujan</span><span class="tag">Servo</span></div>
+            </div>
+            <ul class="project-points">
+              <li>Merancang alur sensor hingga gerakan otomatis pada mekanisme jemuran.</li>
+              <li>Menguji dan melakukan troubleshooting untuk meningkatkan keandalan sistem.</li>
+            </ul>
+          </article>
+
+          <article class="project">
+            <div class="project-id">PROYEK_03<br>2024–2025</div>
+            <div>
+              <h3>Permainan Ular Tangga</h3>
+              <p class="project-summary">Permainan berbasis konsol yang menerapkan logika permainan, pengacakan dadu, pergerakan pemain, dan pengelolaan file.</p>
+            </div>
+            <div class="project-side">
+              <strong>TEKNOLOGI</strong>
+              <div class="tags"><span class="tag">C++</span><span class="tag">Visual Studio Code</span></div>
+            </div>
+            <ul class="project-points">
+              <li>Menerapkan array, perulangan, percabangan, fungsi, dan file.</li>
+              <li>Melakukan debugging dan pengujian untuk menjaga aplikasi tetap stabil.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="keahlian">
+      <div class="wrap">
+        <div class="section-head">
+          <div><span class="section-number">02 / KEAHLIAN</span><h2>Perangkat untuk bertumbuh.</h2></div>
+          <p>Kombinasi keterampilan teknis, pengolahan dokumen, dan visual yang terus saya kembangkan melalui kuliah, pelatihan, dan proyek.</p>
+        </div>
+
+        <div class="skills-grid">
+          <div class="skill-panel">
+            <h3>Keahlian teknis</h3>
+            <div class="skill-groups">
+              <div class="skill-group"><h4>PEMROGRAMAN</h4><p>C++, Python dasar, Arduino</p></div>
+              <div class="skill-group"><h4>APLIKASI & TOOLS</h4><p>Microsoft Excel, Word, PowerPoint, Visual Studio Code, Arduino IDE, Canva, CapCut</p></div>
+              <div class="skill-group"><h4>HARDWARE</h4><p>Perakitan komputer, troubleshooting PC, instalasi hardware, jaringan dasar</p></div>
+              <div class="skill-group"><h4>BAHASA</h4><p>Bahasa Indonesia · fasih<br>Bahasa Inggris · menengah</p></div>
+            </div>
+          </div>
+
+          <div class="skill-panel">
+            <h3>Sertifikasi & pelatihan</h3>
+            <ul class="cert-list">
+              <li><span class="issuer">DICODING</span><span class="cert-name">Python Programming</span></li>
+              <li><span class="issuer">DICODING</span><span class="cert-name">AWS Cloud & Generative AI</span></li>
+              <li><span class="issuer">DICODING</span><span class="cert-name">Microsoft Azure Generative AI</span></li>
+              <li><span class="issuer">DICODING</span><span class="cert-name">Microsoft Fabric Data Science</span></li>
+              <li><span class="issuer">DICODING</span><span class="cert-name">Spec-Driven Development with Kiro</span></li>
+              <li><span class="issuer">DICODING</span><span class="cert-name">Machine Learning for Beginners</span></li>
+              <li><span class="issuer">HACKTIV8</span><span class="cert-name">AI for Work & Career Readiness with Google AI Products</span></li>
+              <li><span class="issuer">DICODING · AWS</span><span class="cert-name">AWS AI Academy 2026 — Level Dasar & Pemula</span></li>
+              <li><span class="issuer">MICROSOFT · DICODING</span><span class="cert-name">Data Science dengan Microsoft Fabric & Aplikasi Gen AI dengan Microsoft Azure</span></li>
+              <li><span class="issuer">SPEAK-UP</span><span class="cert-name">Basic Public Speaking: Teknik Bicara Spontan, Terstruktur, dan Percaya Diri</span></li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="perjalanan">
+      <div class="wrap">
+        <div class="section-head">
+          <div><span class="section-number">03 / PERJALANAN</span><h2>Fondasi dan arah.</h2></div>
+          <p>Sedang menempuh pendidikan Sistem Informasi sambil memperluas pengalaman teknis, kolaborasi, dan komunikasi.</p>
+        </div>
+
+        <div class="path-grid">
+          <div class="timeline">
+            <h3>Pendidikan</h3>
+            <div class="timeline-item">
+              <span class="timeline-date">2026 — SEKARANG</span>
+              <h4>Universitas Bina Sarana Informatika</h4>
+              <p>Program Studi Sistem Informasi · Jakarta</p>
+            </div>
+            <div class="timeline-item">
+              <span class="timeline-date">2022 — 2025</span>
+              <h4>SMA Muhammadiyah 2 Jakarta</h4>
+              <p>Jurusan IPA · Informatika, Matematika Lanjutan, Fisika, dan Bahasa Inggris Lanjutan</p>
+            </div>
+          </div>
+
+          <div class="org-panel">
+            <div>
+              <span class="mono">PENGALAMAN ORGANISASI / 2023–2025</span>
+              <h3>Anggota Organisasi Sekolah</h3>
+              <p>Membantu merencanakan dan menyelenggarakan kegiatan sekolah serta bekerja sama dengan anggota panitia untuk mencapai tujuan proyek.</p>
+            </div>
+            <div class="org-skills"><span>Kerja tim</span><span>Komunikasi</span><span>Kepemimpinan</span><span>Koordinasi</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="jejaring">
+      <div class="wrap">
+        <h2>Temukan jejak kerja saya.</h2>
+        <p>Lihat profil profesional dan proyek pemrograman saya melalui tautan berikut.</p>
+        <div class="contact-links">
+          <a class="button" href="https://www.linkedin.com/in/ridhofaris" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a class="button secondary" href="https://github.com/Ridhofaris/Projek-" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-row">
+      <span>© 2026 Muhammad Ridho Alfaris</span>
+      <a href="#main">Kembali ke atas ↑</a>
+    </div>
+  </footer>
+</body>
+</html>
